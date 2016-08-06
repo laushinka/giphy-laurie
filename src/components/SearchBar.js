@@ -5,13 +5,15 @@ class SearchBar extends Component {
     super(props);
     this.state = {keyword: ""}
   }
+  handleTextChange(e) {
+    this.setState({keyword: e.target.value});
+    debugger
+  }
   render() {
     return (
-      <div>
-        <form>
-          <input type="text" placeholder="Search" />
+      <div className="search-container">
+          <input className="search-bar" type="text" placeholder="Search" value={this.state.keyword} onChange={this.handleTextChange.bind(this)}/>
           <input type="submit" />
-        </form>
       </div>
     );
   }
