@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 // import logo                 from './logo.svg';
 import './App.css';
-// import Request              from 'superagent';
+import Request              from 'superagent';
 import Search               from './components/Search.js'
 
 class App extends Component {
@@ -11,6 +11,14 @@ class App extends Component {
       gifs: []
     }
   }
+
+  searchTerm(keyword) {
+  var url = `http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=dc6zaTOxFJmzC`;
+  Request.get(url, function(err,res) {
+    console.log(res.body.data[0]);
+  });
+  }
+
   render() {
     return (
       <div>
