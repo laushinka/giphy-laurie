@@ -5,13 +5,17 @@ import './App.css';
 import Search               from './components/Search.js'
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      gifs: []
+    }
+  }
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <Search />
+      <div>
           <h2>HARROOOO</h2>
-        </div>
+          <Search />
       </div>
     );
   }
