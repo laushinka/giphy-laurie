@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import logo                 from './logo.svg';
 import './App.css';
 import Request              from 'superagent';
-import Search               from './components/Search.js'
+import SearchBar            from './components/SearchBar.js'
 
 class App extends Component {
   constructor(props) {
@@ -22,8 +22,8 @@ class App extends Component {
   render() {
     return (
       <div>
-          <h2>HARROOOO</h2>
-          <Search />
+        <h1>Gifs</h1>
+        <SearchBar />
       </div>
     );
   }
