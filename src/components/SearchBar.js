@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Request              from 'superagent';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -10,14 +11,20 @@ class SearchBar extends Component {
   }
   handleSubmit(e) {
     e.preventDefault();
-    var keyword = this.state.keyword.trim();
-    this.setState({keyword: ""});
+    let keyword = this.state.keyword.trim();
+    if(!keyword) {
+      return;
+    }
+    // Call parent component with search term
+    this.props.onSubmit(keyword);
   }
   render() {
     return (
       <div className="search-container">
+        <form className="search-form" onSubmit={this.handleSubmit.bind(this)}>
           <input className="search-bar" type="text" placeholder="Search" value={this.state.keyword} onChange={this.handleTextChange.bind(this)}/>
-          <input type="submit" onSubmit={this.handleSubmit.bind(this)} />
+          <input type="submit" />
+        </form>
       </div>
     );
   }
