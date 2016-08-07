@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 // import Request              from 'superagent';
 import SearchBar            from './components/SearchBar.js'
-import GifContainer from './components/GifContainer.js'
+import GifContainer         from './components/GifContainer.js'
 
 class App extends Component {
   constructor(props) {
@@ -13,13 +13,14 @@ class App extends Component {
     }
   }
 
-  // handle search from SearcComponent
+  // handle search from SearchComponent
   handleSubmit(keyword) {
     $.ajax({
      url: `http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=dc6zaTOxFJmzC`,
      method: "GET",
      success: ((data) => {
        this.setState({gifs: data.data});
+       debugger;
        //var gifs = data.data[0].images.original.url
        //debugger;
      }),
@@ -35,6 +36,9 @@ class App extends Component {
   //   console.log(res.body.data[0]);
   // });
   // }
+  handleMouseEvent(e) {
+    e.preventDefault;
+  }
 
   render() {
     return (
