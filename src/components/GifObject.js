@@ -1,3 +1,5 @@
+// This component ended up defunct
+
 import React, { Component } from 'react';
 
 class GifObject extends Component {
