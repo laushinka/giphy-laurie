@@ -12,7 +12,6 @@ class App extends Component {
       gifs: []
     }
   }
-
   // handle search from SearchComponent
   handleSubmit(keyword) {
     $.ajax({
@@ -20,7 +19,6 @@ class App extends Component {
      method: "GET",
      success: ((data) => {
        this.setState({gifs: data.data});
-       debugger;
        //var gifs = data.data[0].images.original.url
        //debugger;
      }),
@@ -29,22 +27,18 @@ class App extends Component {
      })
    });
   }
-
   // searchTerm(keyword) {
   // var url = `http://api.giphy.com/v1/gifs/search?q=${keyword}&api_key=dc6zaTOxFJmzC`;
   // Request.get(url, function(err,res) {
   //   console.log(res.body.data[0]);
   // });
   // }
-  handleMouseEvent(e) {
-    e.preventDefault;
-  }
 
   render() {
     return (
       <div>
         <h1>Gifs</h1>
-        <SearchBar onSubmit={this.handleSubmit.bind(this)}/>
+        <SearchBar onSubmit={this.handleSubmit.bind(this)} />
         <GifContainer gifs={this.state.gifs} />
       </div>
     );
