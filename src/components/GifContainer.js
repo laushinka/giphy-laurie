@@ -6,9 +6,9 @@ class GifContainer extends Component {
     var gifs = this.props.gifs;
     var rows = [];
     for (var i = 0; i < gifs.length; i++) {
-      // console.log(gifs[i]);
+      console.log(gifs[i]);
       if (gifs[i].images)
-        rows.push(<GifRow key={gifs[i].id} gif={gifs[i].images.original_still.url} />);
+        rows.push(<GifRow key={gifs[i].id} gif={gifs[i].images.original.url} img={gifs[i].images.original_still.url} />);
     }
     return (
       <table><tbody>{rows}</tbody></table>
