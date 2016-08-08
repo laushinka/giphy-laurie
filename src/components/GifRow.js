@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 // import GifObject from './GifObject.js';
 
 class GifRow extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isHovering: false
+    }
+  }
   handleMouseOver(e) {
     e.preventDefault();
     this.setState({
@@ -17,17 +23,16 @@ class GifRow extends Component {
   render() {
     var img = this.props.img;
     var gif = this.props.gif;
-    debugger;
     if (this.state.isHovering) {
       return(
         <tr>
-          <td><img src={gif} /></td>
+          <td><img onMouseOut={this.handleMouseOut.bind(this)} src={gif} /></td>
         </tr>
       )
     } else {
       return(
         <tr>
-          <td><img src={img} /></td>
+          <td><img onMouseOver={this.handleMouseOver.bind(this)} src={img} /></td>
         </tr>
       )
     }
